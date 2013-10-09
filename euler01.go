@@ -9,12 +9,12 @@ func main() {
 }
 
 /*
-What if you break 1..1000 into chunks with 15 numbers each?
+Break 1..1000 into chunks with 15 numbers each.
 
 In each chunk you know the multiples of 3 and multiples of 5 are indexed
 at (offsets) 2, 4, 5, 8, 9, 11, 14
 
-01 02 03 04 05 06 07 08 09 10 11 12 13 14 15
+01 02 03 04 05 06 07 08 09 10 11 12 13 14 15  <= values for chunk one
 0  1  2  3  4  5  6  7  8  9  10 11 12 13 14  <= index
       !        !        !        !        !
             *              *
@@ -24,12 +24,17 @@ func try3() int {
 	addend := len(a)
 	var sum int
 
-	// START HERE... it misses the last few numbers b/c the "< 1000"
-	// makes it stop at a[14]==990.  But I gotta run to the store.
 	for a[14] < 1000 {
 		sum += a[2] + a[4] + a[5] + a[8] + a[9] + a[11] + a[14]
-		for i := 0; i < addend; i++ {
+		for i := 0; i < addend; i++ { // a gets next "chunk"
 			a[i] += addend
+		}
+	} // at end of loop, a has 1000 in it (& >1000) so ADD to sum
+
+	for i := 0; a[i] < 1000; i++ {
+		switch i {
+		case 2, 4, 5, 8, 9, 11, 14:
+			sum += a[i]
 		}
 	}
 	return sum
