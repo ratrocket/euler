@@ -1,0 +1,5 @@
+- problem 1 (sum of multiples of 3 & 5): happy
+- problem 2 (sum of even fib < 4*10e6): pretty happy, could look for
+  more efficiency
+- problem 3 (prime factors): need to actually factor
+- problem 4 (palindromes): want to make more efficient (better than n^2)

@@ -31,14 +31,21 @@ func pal(n int) bool {
 // Is there a way to write this with a function that returns a function
 // (a closure)?  Just for fun, of course.
 func main() {
-	fmt.Println(try1())
+	/*
+	2 digit largest:  9009
+	3 digit largest:  906609
+	4 digit largest:  99000099
+	*/
+	fmt.Println("2 digit largest: ", try1(10, 100))
+	fmt.Println("3 digit largest: ", try1(100, 1000))
+	//fmt.Println("4 digit largest: ", try1(1000, 10000))
 }
 
-// two digit numbers (so answer is 9009, see above)
-func try1() int {
+// TODO how to make this smarter & more efficient?
+func try1(lo, hi int) int {
 	var lg, prod int
-	for i := 10; i < 100; i++ { // simplest, slowest way; SLOW
-		for j := 10; j < 100; j++ {
+	for i := lo; i < hi; i++ { // simplest, slowest way; SLOW
+		for j := lo; j < hi; j++ {
 			prod = i * j
 			if pal(prod) && prod > lg {
 				lg = prod
@@ -46,6 +53,20 @@ func try1() int {
 		}
 	}
 	return lg
+}
+
+// THIS DOES NOT WORK
+// go from top to bottom
+func try2(lo, hi int) int {
+	for i := hi - 1; i >= lo; i-- {
+		for j := hi - 1; j >= lo; j-- {
+			prod := i * j
+			if pal(prod) {
+				return prod
+			}
+		}
+	}
+	return 0 // didn't find anything
 }
 
 func test() { // ad hoc test... better than nothing?
