@@ -1,4 +1,12 @@
-// Palindromic numbers (eg, 9009)
+// Largest palindrome product
+// Problem 4
+//
+// A palindromic number reads the same both ways. The largest palindrome
+// made from the product of two 2-digit numbers is 9009 = 91 × 99.
+//
+// Find the largest palindrome made from the product of two 3-digit
+// numbers.
+//
 // (without using strings!)
 package main
 
@@ -16,11 +24,28 @@ func rev(n int) int {
 	return r
 }
 
-func main() {
+func pal(n int) bool {
+	return rev(n) == n
 }
 
+// Is there a way to write this with a function that returns a function
+// (a closure)?  Just for fun, of course.
+func main() {
+	fmt.Println(try1())
+}
+
+// two digit numbers (so answer is 9009, see above)
 func try1() int {
-	return 0
+	var lg, prod int
+	for i := 10; i < 100; i++ { // simplest, slowest way; SLOW
+		for j := 10; j < 100; j++ {
+			prod = i * j
+			if pal(prod) && prod > lg {
+				lg = prod
+			}
+		}
+	}
+	return lg
 }
 
 func test() { // ad hoc test... better than nothing?
