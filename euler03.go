@@ -77,4 +77,5 @@ end
 print primes
 
 BUT does this algorithm finish??
+(I think yes -- you check to see if the updated n is prime, then done)
 */
