@@ -9,6 +9,9 @@ func main() {
 }
 
 /*
+TODO: Maybe there's an opportunity to apply a "Duff's device" type
+technique here since the final form of `a` has numbers >1000...
+
 Break 1..1000 into chunks with 15 numbers each.
 
 In each chunk you know the multiples of 3 and multiples of 5 are indexed
