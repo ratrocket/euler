@@ -15,6 +15,8 @@
 // click and 'Save Link/Target As...'), a 15K text file containing a
 // triangle with one-hundred rows.
 //
+// (NB: contents of file is IN this file; see values variable)
+//
 // NOTE: This is a much more difficult version of Problem 18. It is not
 // possible to try every route to solve this problem, as there are 299
 // altogether! If you could check one trillion (1012) routes every
