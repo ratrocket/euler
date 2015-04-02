@@ -37,8 +37,8 @@ package main
 import "fmt"
 
 func haszero(s []int) bool {
-	for i := 0; i < len(s); i++ {
-		if s[i] == 0 {
+	for _, n := range s {
+		if n == 0
 			return true
 		}
 	}
@@ -47,8 +47,8 @@ func haszero(s []int) bool {
 
 func product(s []int) int {
 	prod := 1
-	for i := 0; i < len(s); i++ {
-		prod *= s[i]
+	for _, n := range s {
+		prod *= n
 	}
 	return prod
 }
